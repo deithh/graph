@@ -41,6 +41,9 @@ def parser(command: str) -> None:
             graph.breadth_sort()
             input("[any]: ")
 
+        # elif instruction in ['plot']:
+        #     graph.plot()
+
 
         elif instruction in ['h', 'help']:
             print("dfs")
@@ -121,3 +124,4 @@ def main() -> None:
 t = threading.Thread(target = main())
 t.start()
 t.join()
+
