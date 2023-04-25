@@ -3,11 +3,8 @@ import threading
 from models import *
 import os
 
-
 sys.setrecursionlimit(10000)
 threading.stack_size(0x2000000)
-
-
 
 
 def clear() -> None:
@@ -28,7 +25,7 @@ def parser(command: str) -> None:
         elif instruction in ["dfs"]:
             graph.dfs()
             input("[any]: ")
-        
+
         elif instruction in ["bfs"]:
             graph.bfs()
             input("[any]: ")
@@ -41,9 +38,8 @@ def parser(command: str) -> None:
             graph.breadth_sort()
             input("[any]: ")
 
-        # elif instruction in ['plot']:
-        #     graph.plot()
-
+        elif instruction in ['plot']:
+            graph.plot()
 
         elif instruction in ['h', 'help']:
             print("dfs")
@@ -58,12 +54,11 @@ def parser(command: str) -> None:
 
 graph = A_mat_graph(.5)
 
+
 def main() -> None:
     global graph
 
     menu: str = 'default'
-    tree_type: str = ''
-    array: list = []
 
     while True:
 
@@ -100,14 +95,13 @@ def main() -> None:
             if temp == 'exit':
                 break
             n = int(temp)
-            graph.init_edges(n, user = False)
+            graph.init_edges(n, user=False)
             menu = 'choose func'
 
         elif menu == 'enter':
-            graph.init_edges(user = True)
+            graph.init_edges(user=True)
             input("[any]: ")
             menu = 'choose func'
-
 
         elif menu == "choose func":
             clear()
@@ -119,9 +113,6 @@ def main() -> None:
     clear()
 
 
-
-
-t = threading.Thread(target = main())
+t = threading.Thread(target=main())
 t.start()
 t.join()
-
